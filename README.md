@@ -1,26 +1,33 @@
 # openkeychain-springboot-sample
 
-
-## Request Challenge
-
-http://localhost:8080/challenge
+sample application for openkeychain web service
 
 
-## Record Registration
+### Get Publishers
 
-http://localhost:8080/registration/record
-
-
-## Revoke Registration
-
-http://localhost:8080/registration/revoke
+GET http://localhost:8080/publishers
 
 
-## Check Registration
+### Request Challenge
 
-http://localhost:8080/registration/check
+GET http://localhost:8080/challenge
 
 
-## Fetch Registration
+### Record Registration
 
-http://localhost:8080/registration
+POST http://localhost:8080/registration
+
+
+### Revoke Registration
+
+DELETE http://localhost:8080/registration
+
+
+### Check Registration
+
+GET http://localhost:8080/registration/check
+
+
+### Fetch Registration
+
+GET http://localhost:8080/registration
