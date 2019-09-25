@@ -1,4 +1,4 @@
-package sample.core;
+package sample.service;
 
 import java.io.Closeable;
 import java.util.Properties;

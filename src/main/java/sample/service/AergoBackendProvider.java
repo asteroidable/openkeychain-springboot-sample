@@ -1,4 +1,4 @@
-package sample.core;
+package sample.service;
 
 import java.io.File;
 import java.io.IOException;
@@ -59,7 +59,6 @@ public class AergoBackendProvider implements BackendProvider {
 			// config and scratch properties
 			final File scratchFile = initScratchFile(SCRATCH_PATH);
 			logger.info("scratch.abspath: {}", scratchFile.getAbsolutePath());
-			logger.info("scratch.exists: {}", scratchFile.exists());
 			this.scratch = PropertiesUtils.init(scratchFile);
 			this.config = PropertiesUtils.load(App.class, CONFIG_PATH);
 			

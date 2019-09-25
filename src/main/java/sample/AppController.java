@@ -1,4 +1,4 @@
-package sample.controller;
+package sample;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ import io.aergo.openkeychain.backend.AergoAdaptor;
 import io.aergo.openkeychain.model.Challenge;
 import io.aergo.openkeychain.model.Entry;
 import io.aergo.openkeychain.model.Response;
-import sample.core.BackendProvider;
+import sample.service.BackendProvider;
 import sample.service.OpenkeychainService;
 import sample.util.AwaitUtils;
 

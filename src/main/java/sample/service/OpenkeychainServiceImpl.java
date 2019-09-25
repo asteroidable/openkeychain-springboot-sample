@@ -12,7 +12,6 @@ import io.aergo.openkeychain.model.Response;
 import io.aergo.openkeychain.server.RegistrationManager;
 import lombok.Getter;
 import lombok.Setter;
-import sample.core.BackendProvider;
 
 @Service
 public class OpenkeychainServiceImpl implements OpenkeychainService {

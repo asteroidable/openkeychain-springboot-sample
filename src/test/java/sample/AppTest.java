@@ -149,7 +149,6 @@ public class AppTest {
 		MvcResult result = mvc.perform(get("/publishers"))
 			.andExpect(status().isOk())
 			.andReturn();
-		
 		return parse(result, new TypeReference<String[]>() {});
 	}
 
@@ -157,9 +156,9 @@ public class AppTest {
 		MvcResult result = mvc.perform(get("/challenge"))
 			.andExpect(status().isOk())
 			.andReturn();
-		
 		return parse(result, Challenge.class);
 	}
+	
 
 	public String recordRegistration(Response response) throws Exception {
 		MvcResult result = mvc.perform(post("/registration")
@@ -186,7 +185,6 @@ public class AppTest {
 	public Entry fetchRegistration(String address) throws Exception {
 		MvcResult result = mvc.perform(get("/registration").param("address", address))
 				.andReturn();
-		logger.debug("fetch: {}", result.getResponse().getContentAsString());
 		return parse(result, Entry.class);
 	}
 
