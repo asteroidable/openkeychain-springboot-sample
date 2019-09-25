@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.springframework.stereotype.Service;
 
 import io.aergo.openkeychain.backend.Backend;
-import io.aergo.openkeychain.core.SimpleKeyManager;
 import io.aergo.openkeychain.model.Challenge;
 import io.aergo.openkeychain.model.Entry;
 import io.aergo.openkeychain.model.Metadata;
@@ -21,17 +20,24 @@ public class OpenkeychainServiceImpl implements OpenkeychainService {
 	@Getter @Setter
 	RegistrationManager manager = null;
 	
+	
 	public OpenkeychainServiceImpl() {
 		try {
 			final Backend backend = BackendProvider.defaultProvider.getBackend();
 			this.manager = RegistrationManager.builder()
 					.backend(backend)
 					.publishers(backend.getPublishers())
-					.signer(new SimpleKeyManager().getSigner())
+					.signer(BackendProvider.defaultProvider.getSigner())
 					.build();
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+
+	@Override
+	public String[] getPublishers() {
+		return getManager().getPublishers().getPublishers().toArray(new String[] {});
 	}
 
 	@Override
@@ -56,19 +62,13 @@ public class OpenkeychainServiceImpl implements OpenkeychainService {
 	}
 
 	@Override
-	public boolean checkRegistration(Response response) throws IOException {
-		if (!getManager().checkResponse(response)) {
-			return false;
-		}
-		return getManager().checkRegistration(response.getCertificate());
+	public boolean checkRegistration(String address) throws IOException {
+		return getManager().checkRegistration(address);
 	}
 
 	@Override
-	public Entry fetchRegistration(Response response) throws IOException {
-		if (!getManager().checkResponse(response)) {
-			return null;
-		}
-		return getManager().fetchRegistration(response.getCertificate());
+	public Entry fetchRegistration(String address) throws IOException {
+		return getManager().fetchRegistration(address);
 	}
 	
 }

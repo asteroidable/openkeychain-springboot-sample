@@ -4,6 +4,7 @@ import java.io.Closeable;
 import java.util.Properties;
 
 import io.aergo.openkeychain.backend.Backend;
+import io.aergo.openkeychain.core.Signer;
 
 public interface BackendProvider extends Closeable {
 	
@@ -12,6 +13,8 @@ public interface BackendProvider extends Closeable {
 	public Properties getConfig();
 	
 	public Properties getScratch();
+	
+	public Signer getSigner();
 	
 	
 	public static BackendProvider defaultProvider = new AergoBackendProvider();

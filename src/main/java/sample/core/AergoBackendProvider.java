@@ -21,6 +21,7 @@ import io.aergo.openkeychain.backend.AergoAdaptor;
 import io.aergo.openkeychain.backend.AergoBackend;
 import io.aergo.openkeychain.backend.Backend;
 import io.aergo.openkeychain.core.KeyManager;
+import io.aergo.openkeychain.core.Signer;
 import io.aergo.openkeychain.core.SimpleKeyManager;
 import io.aergo.openkeychain.provider.ContextProvider;
 import io.aergo.openkeychain.util.KeyUtils;
@@ -165,5 +166,10 @@ public class AergoBackendProvider implements BackendProvider {
 	public Properties getScratch() {
 		return scratch;
 	}
-	
+
+	@Override
+	public Signer getSigner() {
+		return keyManager.getSigner();
+	}
+
 }

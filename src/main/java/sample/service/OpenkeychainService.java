@@ -8,6 +8,8 @@ import io.aergo.openkeychain.model.Metadata;
 import io.aergo.openkeychain.model.Response;
 
 public interface OpenkeychainService {
+	
+	public String[] getPublishers();
 
 	public Challenge createChallenge();
 	
@@ -15,8 +17,8 @@ public interface OpenkeychainService {
 	
 	public String revokeRegistration(Response response) throws IOException;
 	
-	public boolean checkRegistration(Response response) throws IOException;
+	public boolean checkRegistration(String address) throws IOException;
 	
-	public Entry fetchRegistration(Response response) throws IOException;
+	public Entry fetchRegistration(String address) throws IOException;
 	
 }

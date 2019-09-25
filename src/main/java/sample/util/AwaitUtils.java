@@ -25,4 +25,8 @@ public class AwaitUtils {
 		});
 	}
 
+	public static void txConfirmed(final AergoAdaptor adaptor, final String txHash) {
+		txConfirmed(adaptor, TxHash.of(txHash));
+	}
+
 }
