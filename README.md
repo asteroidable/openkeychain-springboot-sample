@@ -1,4 +1,4 @@
-# sample-openkeychain-springboot
+# openkeychain-springboot-sample
 
 
 ## Request Challenge
