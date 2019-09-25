@@ -2,7 +2,6 @@ plugins {
     id 'java'
     id 'application'
     
-    id 'com.gradle.build-scan' version '2.0.2'
     id 'org.springframework.boot' version '2.0.5.RELEASE'
     id 'io.spring.dependency-management' version '1.0.7.RELEASE'
 }
@@ -12,10 +11,30 @@ repositories {
     maven { url 'http://dl.bintray.com/aergoio/maven/' }
 }
 
+ext {
+  lombokVersion = '1.18.8'
+  //jacksonVersion = '2.6.7'
+  herajVersion = '1.1.0'
+}
+
+
 dependencies {
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+    testImplementation "org.projectlombok:lombok:${lombokVersion}"
+    
+    implementation 'org.slf4j:slf4j-api:1.7.25'
+    runtime 'ch.qos.logback:logback-classic:1.2.3'
+    
     implementation 'com.google.guava:guava:27.1-jre'
     testImplementation 'junit:junit:4.12'
-    compile 'io.aergo:openkeychainj-sdk:1.0.0'
+    
+    //implementation ("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
+    implementation ("io.aergo:heraj-transport:${herajVersion}")
+    implementation ("io.aergo:heraj-common:${herajVersion}")
+    implementation ("io.aergo:heraj-util:${herajVersion}")
+    implementation 'io.aergo:openkeychainj-sdk:1.0.0'
+    implementation 'org.awaitility:awaitility:3.1.6'
     
     implementation 'org.springframework.boot:spring-boot-dependencies:2.0.5.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -33,17 +52,11 @@ dependencies {
     }
 }
 
+
 application {
-    mainClassName = 'sample.app.App'
+    mainClassName = 'sample.App'
 }
 
-
-buildScan {
-
-    // always accept the terms of service
-    termsOfServiceUrl = 'https://gradle.com/terms-of-service'
-    termsOfServiceAgree = 'yes'
-
-    // always publish a build scan
-    publishAlways()
+bootJar {
+    mainClassName = 'sample.App'
 }

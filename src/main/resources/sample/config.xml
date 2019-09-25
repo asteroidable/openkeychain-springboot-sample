@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="aergo.endpoint">10.20.0.101:7845</entry>
+	<entry key="charger.address">AmPo4VfX2tHHTTerLR47caSP8hJ9ZTRhX7UkJ8W54hV8U5yUntc6</entry>
+	<entry key="charger.encrypted">47curT3QsdP5ehEApyj4nhinkLKJr2vPMw6dRrF5vGqzbZfVk7d3Xubi99U5fANe7ynAnaDQG</entry>
+	<entry key="charger.password">KSZ7bOWFvZ</entry>
+</properties>
